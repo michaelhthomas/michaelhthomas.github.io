@@ -44,7 +44,7 @@
 </script>
 
 <div
-  class="game relative w-full max-w-[650px] mx-auto mt-12 lg:mt-24 space-y-12 md:space-y-18 lg:space-y-32"
+  class="game relative w-full min-h-0 flex-grow max-w-[650px] mx-auto gap-4 flex flex-col py-4 justify-between"
 >
   {#if $state.message}
     <div class="fixed left-0 right-0 top-0">
@@ -57,18 +57,22 @@
     </div>
   {/if}
 
-  <div class="space-y-2 mx-auto px-8 max-w-[500px]">
-    {#each $state.guesses as guess}
-      <GameRow {guess} />
-    {/each}
+  <div />
 
-    {#if $state.guesses.length < 6}
-      <GameRow letters={currentGuess} />
-    {/if}
+  <div class="w-full px-2 max-h-[600px] min-h-0 flex-shrink">
+    <div class="space-y-2 mx-auto aspect-[5/6] min-h-0 h-full max-w-full">
+      {#each $state.guesses as guess}
+        <GameRow {guess} />
+      {/each}
 
-    {#each Array(5 - $state.guesses.length) as _}
-      <GameRow />
-    {/each}
+      {#if $state.guesses.length < 6}
+        <GameRow letters={currentGuess} />
+      {/if}
+
+      {#each Array(5 - $state.guesses.length) as _}
+        <GameRow />
+      {/each}
+    </div>
   </div>
 
   <div class="space-y-2">
@@ -106,6 +110,8 @@
       </div>
     {/each}
   </div>
+
+  <div />
 </div>
 
 <svelte:window on:keydown={onKeyDown} />
