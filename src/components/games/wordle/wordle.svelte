@@ -62,7 +62,7 @@
 
   <div class="w-full px-4 max-h-[600px] min-h-0 flex-shrink">
     <div
-      class="space-y-2 mx-auto aspect-[5/6] min-h-0 h-full max-w-full relative"
+      class="flex flex-col gap-2 mx-auto aspect-[5/6] min-h-0 h-full max-w-full relative"
     >
       <div
         class="absolute left-0 top-0 translate -translate-x-1/3 -translate-y-1/3 -rotate-15"
