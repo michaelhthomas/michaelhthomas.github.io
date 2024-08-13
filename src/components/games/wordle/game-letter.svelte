@@ -8,7 +8,7 @@
 </script>
 
 <div
-  class={`text-white text-4xl select-none font-bold aspect-square flex items-center justify-center text-center rounded border-2 border-neutral-700 ${color}`}
+  class={`text-neutral-700 text-4xl select-none font-bold aspect-square flex items-center justify-center text-center rounded border-2 border-neutral-200 ${color}`}
 >
   {letter}
 </div>

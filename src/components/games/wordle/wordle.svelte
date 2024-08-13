@@ -1,5 +1,6 @@
 <script lang="ts">
   import { slide } from 'svelte/transition';
+  import bowIcon from '~src/assets/images/bow.min.svg?raw';
   import GameRow from './game-row.svelte';
   import {
     createWordleGame,
@@ -59,8 +60,16 @@
 
   <div />
 
-  <div class="w-full px-2 max-h-[600px] min-h-0 flex-shrink">
-    <div class="space-y-2 mx-auto aspect-[5/6] min-h-0 h-full max-w-full">
+  <div class="w-full px-4 max-h-[600px] min-h-0 flex-shrink">
+    <div
+      class="space-y-2 mx-auto aspect-[5/6] min-h-0 h-full max-w-full relative"
+    >
+      <div
+        class="absolute left-0 top-0 translate -translate-x-1/3 -translate-y-1/3 -rotate-15"
+      >
+        {@html bowIcon}
+      </div>
+
       {#each $state.guesses as guess}
         <GameRow {guess} />
       {/each}
@@ -83,7 +92,7 @@
         {#if i == 2}
           <button
             on:click={handleBackspace}
-            class="p-2 sm:p-3 md:p-4 bg-neutral-800 text-neutral-200 border-neutral-700 rounded"
+            class="p-2 sm:p-3 md:p-4 bg-neutral-100 text-neutral-800 border-neutral-700 rounded"
             aria-label="Backspace"
           >
             &#x232B
@@ -91,7 +100,7 @@
         {/if}
         {#each row as key}
           <button
-            class={`w-8 sm:w-10 md:w-12 py-2 sm:py-3 md:py-4 text-center rounded border-neutral-700 text-neutral-200 ${getColorForState($state.letters.get(key) ?? LetterState.NotGuessed) || 'bg-neutral-800'}`}
+            class={`w-8 sm:w-10 md:w-12 py-2 sm:py-3 md:py-4 text-center rounded border-neutral-700 text-neutral-800 ${getColorForState($state.letters.get(key) ?? LetterState.NotGuessed) || 'bg-neutral-100'}`}
             on:click={() => {
               if (currentGuess.length < 5) currentGuess += key;
             }}
@@ -102,7 +111,7 @@
         {#if i == 2}
           <button
             on:click={handleEnter}
-            class="p-2 sm:p-3 md:p-4 bg-neutral-800 text-neutral-200 border-neutral-700 rounded text-base"
+            class="p-2 sm:p-3 md:p-4 bg-neutral-100 text-neutral-800 border-neutral-700 rounded text-base"
           >
             Enter
           </button>

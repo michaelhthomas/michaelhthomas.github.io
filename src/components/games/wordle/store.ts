@@ -21,16 +21,10 @@ export type Hint = [Letter, LetterState][];
 export function getColorForState(state: LetterState): string {
   return match(state)
     .with(LetterState.NotGuessed, () => '')
-    .with(LetterState.Incorrect, () => 'bg-neutral-700')
-    .with(LetterState.WrongPos, () => 'bg-yellow-500')
-    .with(LetterState.Correct, () => 'bg-green-500')
+    .with(LetterState.Incorrect, () => 'bg-neutral-300')
+    .with(LetterState.WrongPos, () => 'bg-yellow-200')
+    .with(LetterState.Correct, () => 'bg-green-300')
     .exhaustive();
-}
-
-function assertLetter(c: string): asserts c is Letter {
-  if (c.length != 1 || c.charCodeAt(0) < 97 || c.charCodeAt(0) > 122) {
-    throw new Error('Invalid letter in string.');
-  }
 }
 
 export interface WordleState {
