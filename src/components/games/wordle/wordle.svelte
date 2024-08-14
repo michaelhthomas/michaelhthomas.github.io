@@ -95,14 +95,14 @@
         {#if i == 2}
           <button
             on:click={handleEnter}
-            class="p-2 sm:p-3 md:p-4 bg-neutral-50 text-neutral-800 border-2 border-neutral-200 rounded text-base"
+            class="w-16 py-3 md:py-4 bg-neutral-50 text-neutral-800 border-2 border-neutral-200 rounded text-base"
           >
             Enter
           </button>
         {/if}
         {#each row as key}
           <button
-            class={`w-10 py-3 md:py-4 text-center rounded  text-neutral-800 border-2 border-neutral-200 ${getColorForState($state.letters.get(key) ?? LetterState.NotGuessed) || 'bg-neutral-50'}`}
+            class={`w-10 py-3 md:py-4 text-center rounded text-neutral-800 border-2 border-neutral-200 ${getColorForState($state.letters.get(key) ?? LetterState.NotGuessed) || 'bg-neutral-50'}`}
             on:click={() => {
               if (currentGuess.length < 5) currentGuess += key;
             }}
@@ -113,7 +113,7 @@
         {#if i == 2}
           <button
             on:click={handleBackspace}
-            class="px-4 py-3 bg-neutral-50 border-2 borer-neutral-200 text-neutral-800 rounded"
+            class="w-16 py-3 md:py-4 bg-neutral-50 border-2 borer-neutral-200 text-neutral-800 rounded"
             aria-label="Backspace"
           >
             &#x232B
