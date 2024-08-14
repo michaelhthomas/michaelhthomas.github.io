@@ -21,9 +21,9 @@ export type Hint = [Letter, LetterState][];
 export function getColorForState(state: LetterState): string {
   return match(state)
     .with(LetterState.NotGuessed, () => '')
-    .with(LetterState.Incorrect, () => 'bg-neutral-300')
-    .with(LetterState.WrongPos, () => 'bg-yellow-200')
-    .with(LetterState.Correct, () => 'bg-green-300')
+    .with(LetterState.Incorrect, () => 'bg-neutral-200')
+    .with(LetterState.WrongPos, () => 'bg-[#F7EEC3]')
+    .with(LetterState.Correct, () => 'bg-[#CAE6C0]')
     .exhaustive();
 }
 

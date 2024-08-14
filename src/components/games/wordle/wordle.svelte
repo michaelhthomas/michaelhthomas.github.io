@@ -84,23 +84,25 @@
     </div>
   </div>
 
-  <div class="space-y-2">
+  <div class="space-y-1 sm:space-y-2 px-1">
     {#each keyboard as row, i}
       <div
         class="flex flex-row gap-1 sm:gap-2 justify-center text-xl font-semibold"
       >
+        {#if i == 1}
+          <div class="w-5" />
+        {/if}
         {#if i == 2}
           <button
-            on:click={handleBackspace}
-            class="p-2 sm:p-3 md:p-4 bg-neutral-100 text-neutral-800 border-neutral-700 rounded"
-            aria-label="Backspace"
+            on:click={handleEnter}
+            class="p-2 sm:p-3 md:p-4 bg-neutral-50 text-neutral-800 border-2 border-neutral-200 rounded text-base"
           >
-            &#x232B
+            Enter
           </button>
         {/if}
         {#each row as key}
           <button
-            class={`w-8 sm:w-10 md:w-12 py-2 sm:py-3 md:py-4 text-center rounded border-neutral-700 text-neutral-800 ${getColorForState($state.letters.get(key) ?? LetterState.NotGuessed) || 'bg-neutral-100'}`}
+            class={`w-10 py-3 md:py-4 text-center rounded  text-neutral-800 border-2 border-neutral-200 ${getColorForState($state.letters.get(key) ?? LetterState.NotGuessed) || 'bg-neutral-50'}`}
             on:click={() => {
               if (currentGuess.length < 5) currentGuess += key;
             }}
@@ -110,11 +112,15 @@
         {/each}
         {#if i == 2}
           <button
-            on:click={handleEnter}
-            class="p-2 sm:p-3 md:p-4 bg-neutral-100 text-neutral-800 border-neutral-700 rounded text-base"
+            on:click={handleBackspace}
+            class="px-4 py-3 bg-neutral-50 border-2 borer-neutral-200 text-neutral-800 rounded"
+            aria-label="Backspace"
           >
-            Enter
+            &#x232B
           </button>
+        {/if}
+        {#if i == 1}
+          <div class="w-5" />
         {/if}
       </div>
     {/each}
