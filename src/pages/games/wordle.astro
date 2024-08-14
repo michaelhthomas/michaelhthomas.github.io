@@ -1,0 +1,83 @@
+---
+import { Icon } from 'astro-icon/components';
+import WordleGame from '~src/components/games/wordle/wordle.svelte';
+---
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link
+      rel="icon"
+      type="image/svg+xml"
+      href="/favicon.png"
+    />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"
+    />
+    <meta
+      name="generator"
+      content={Astro.generator}
+    />
+
+    <!-- Analytics -->
+    <script
+      is:inline
+      type="text/partytown"
+      src="https://www.googletagmanager.com/gtag/js?id=G-7DK3PZ81VY"
+    ></script>
+    <script is:inline type="text/partytown">
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag('js', new Date());
+
+      gtag('config', 'G-7DK3PZ81VY');
+    </script>
+
+    <title>Wordle</title>
+    <meta
+      property="og:site_name"
+      content="Michael Thomas"
+    />
+    <meta
+      property="og:type"
+      content="website"
+    />
+  </head>
+  <body>
+    <div class="flex flex-col h-full">
+      <div
+        class="w-full h-12 md:h-16 flex-shrink-0 flex-grow-0 bg-pink-100 border-b-2 border-neutral-300 flex items-center justify-between px-5"
+      >
+        <div class="space-y-1">
+          <h4 class="text-xs text-neutral-800 leading-none">Michael's Games</h4>
+          <h1 class="text-xl font-bold text-pink-400 leading-none">
+            Cait Wordle
+          </h1>
+        </div>
+        <button
+          class="-mr-2 p-2 active:bg-neutral-700 text-neutral-800 rounded-full"
+        >
+          <Icon
+            name="bx:menu"
+            width={22}
+            height={22}
+          />
+        </button>
+      </div>
+
+      <WordleGame client:load />
+    </div>
+  </body>
+</html>
+
+<style>
+  html,
+  body {
+    height: 100%;
+    /* disable double tap to zoom on IOS */
+    touch-action: manipulation;
+  }
+</style>
