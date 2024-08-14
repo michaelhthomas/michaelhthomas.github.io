@@ -65,7 +65,7 @@
       class="flex flex-col gap-2 mx-auto aspect-[5/6] min-h-0 h-full max-w-full relative"
     >
       <div
-        class="absolute left-0 top-0 translate -translate-x-1/3 -translate-y-1/3 -rotate-15"
+        class="absolute left-0 top-0 translate -translate-x-1/3 -translate-y-1/3 -rotate-15 children:size-10 sm:children:size-14"
       >
         {@html bowIcon}
       </div>
